@@ -33,11 +33,11 @@ public class BuildCheckpoints {
         final BlockChain chain = new BlockChain(params, store);
         final PeerGroup peerGroup = new PeerGroup(params, chain);
         //peerGroup.addAddress("213.211.132.60");
-peerGroup.addAddress(new PeerAddress(InetAddress.getByName("213.211.132.60"), params.port));
+peerGroup.addAddress(new PeerAddress(InetAddress.getByName("seed.pooler.cc"), params.port));
         long now = new Date().getTime() / 1000;
         peerGroup.setFastCatchupTimeSecs(now);
 
-        final long newest_limit = now - (86400 * 2);
+        final long newest_limit = now - (86400 * 1); //1 - day
 
         chain.addListener(new AbstractBlockChainListener() {
             @Override

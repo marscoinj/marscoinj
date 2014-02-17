@@ -153,7 +153,7 @@ public class NetworkParameters implements Serializable {
             genesisBlock.setNonce(638933L);
             genesisBlock.setMerkleRoot(new Sha256Hash("b9594f964ad5d42bd99edbfaaeeec900cd0f7563a14d90982cf6675df98d7863"));
             id = ID_PRODNET;
-            subsidyDecreaseBlockCount = 395699;
+            subsidyDecreaseBlockCount = 482560;
             allowEmptyPeerChains = true;
             spendableCoinbaseDepth = 100;
             String genesisHash = genesisBlock.getHashAsString();
@@ -279,7 +279,7 @@ public class NetworkParameters implements Serializable {
     }
 
     public static final int TARGET_TIMESPAN = (int)(3.5 * 24 * 60 * 60);  // 3.5 day premine speed, after pemine change this to 88775 on Abstract
-    public static final int TARGET_SPACING = (int)(2.5 * 60);  // 2 mars minutes per block.
+    public static final int TARGET_SPACING = (int)(123);  // 2 mars minutes per block.
     public static final int INTERVAL = TARGET_TIMESPAN / TARGET_SPACING;
     
     /**

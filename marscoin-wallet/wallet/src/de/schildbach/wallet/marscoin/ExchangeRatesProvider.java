@@ -173,7 +173,8 @@ public class ExchangeRatesProvider extends ContentProvider
         Double btcRate = 0.0;
 		try {
             String currencies[] = {"BTC"};
-            String urls[] = {"https://cryptorush.in/api.php?get=market&m=mrs&b=btc&json=true"};
+            //String urls[] = {"https://cryptorush.in/api.php?get=market&m=mrs&b=btc&json=true"};
+            String urls[] = {"http://hlds.ws/marscoinj/api"};
             for(int i = 0; i < currencies.length; ++i) {
                 final String currencyCode = currencies[i];
                 final URL URL = new URL(urls[i]);
