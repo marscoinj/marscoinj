@@ -53,7 +53,6 @@ public class DnsDiscovery implements PeerDiscovery {
 
     public static final String[] defaultHosts = new String[]{
             "dnsseed.marscoin.ru",
-            "marscoin.ru",
             "marscoin.org",
             "dnsseed.marscoin.org",
             "marsbiotech.com",

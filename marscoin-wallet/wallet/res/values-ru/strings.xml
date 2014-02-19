@@ -2,14 +2,14 @@
 <resources>
 
 	<string name="toast_wallet_reset">Бумажник был сброшен,\nвосстановление потребует какого-то времени</string>
-	<string name="wallet_disclaimer_fragment_remind_safety">Используйте на свой страх и риск. Прочитайте &lt;u&gt;заметки по безопасности&lt;/u&gt;.</string>
+	<string name="blockchain_state_disclaimer">Используйте на свой страх и риск. Прочитайте &lt;u&gt;заметки по безопасности&lt;/u&gt;.</string>
 	<string name="wallet_disclaimer_fragment_remind_backup">Вам необходимо &lt;u&gt;сделать резервную копию вашего бумажника&lt;/u&gt;!</string>
 	<string name="blockchain_state_progress_hours">%1$s, %2$d часов отставания</string>
 	<string name="blockchain_state_progress_days">%1$s, %2$d дней отставания</string>
 	<string name="blockchain_state_progress_weeks">%1$s, %2$d недель отставания</string>
 	<string name="blockchain_state_progress_months">%1$s, %2$d месяцев отставания</string>
 	<string name="blockchain_state_progress_downloading">Синхронизация с сетью</string>
-	<string name="blockchain_state_progress_stalled">Синхронизация повисла</string>
+	<string name="blockchain_state_progress_stalled">Синхронизация остановлена</string>
 	<string name="blockchain_state_progress_problem_storage">Синхронизация: проблема с хранилищем</string>
 	<string name="blockchain_state_progress_problem_network">Синхронизация: проблема с сетью</string>
 	<string name="wallet_address_fragment_your">Ваш Marscoin-адрес:</string>
@@ -155,10 +155,12 @@
 	<string name="preferences_precision_summary">Единицы, в которых отображаются суммы. Не влияет на вычисления.</string>
 	<string name="preferences_connectivity_notification_title">Индикатор соединения</string>
 	<string name="preferences_connectivity_notification_summary">Показать текущее число подключений в области уведомлений.</string>
-	<string name="preferences_trusted_peer_title">Доверенный участник</string>
-	<string name="preferences_trusted_peer_summary">IP или имя хоста одного участника для подключения</string>
+	<string name="preferences_trusted_peer_port_title">Порт доверенного хоста</string>
+	<string name="preferences_trusted_peer_port_summary">Порт на удаленном хосте для подключения</string>
+	<string name="preferences_trusted_peer_title">Доверенный хост</string>
+	<string name="preferences_trusted_peer_summary">IP или имя хоста для подключения</string>
 	<string name="preferences_trusted_peer_only_title">Не выполнять обычное обнаружение участников</string>
-	<string name="preferences_trusted_peer_only_summary">Предотвращает подключение к любым участникам, кроме доверенного.</string>
+	<string name="preferences_trusted_peer_only_summary">Предотвращает подключение к любым хостам, кроме доверенного.</string>
 	<string name="preferences_data_usage_title">Использование данных</string>
 	<string name="preferences_data_usage_summary">Показать опции ограничения использования данных в мобильных сетях.</string>
 	<string name="preferences_report_issue_title">Сообщить о проблеме</string>

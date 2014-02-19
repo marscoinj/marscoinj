@@ -164,7 +164,7 @@ public class NetworkParameters implements Serializable {
             // transactions are handled. Duplicated transactions could occur in the case where a coinbase had the same
             // extraNonce and the same outputs but appeared at different heights, and greatly complicated re-org handling.
             // Having these here simplifies block connection logic considerably.
-            checkpoints.put(50000, new Sha256Hash("5f8272d569c7e2a5a687d909392ac76e586a0ff9d5d4d808b3d150427844cba2"));
+            checkpoints.put(70658, new Sha256Hash("c0703a83b768badf7feefd63b14d28b13792982779855d299e82cc3593f97d7a"));
             //checkpoints.put(91812, new Sha256Hash("00000000000af0aed4792b1acee3d966af36cf5def14935db8de83d6f9306f2f"));
             //checkpoints.put(91842, new Sha256Hash("00000000000a4d0a398161ffc163c503763b1f4360639393e0e4c8e300e0caec"));
             //checkpoints.put(91880, new Sha256Hash("00000000000743f190a18c5577a3c2d2a1f610ae9601ac046a38084ccb7cd721"));
@@ -279,7 +279,7 @@ public class NetworkParameters implements Serializable {
     }
 
     public static final int TARGET_TIMESPAN = (int)(3.5 * 24 * 60 * 60);  // 3.5 day premine speed, after pemine change this to 88775 on Abstract
-    public static final int TARGET_SPACING = (int)(123);  // 2 mars minutes per block.
+    public static final int TARGET_SPACING = (int)(2.5 * 60);  // 2 mars minutes per block.
     public static final int INTERVAL = TARGET_TIMESPAN / TARGET_SPACING;
     
     /**

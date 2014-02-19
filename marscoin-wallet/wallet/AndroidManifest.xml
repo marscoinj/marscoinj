@@ -3,8 +3,8 @@
 	xmlns:tools="http://schemas.android.com/tools"
 	package="de.schildbach.wallet.marscoin"
 	android:installLocation="auto"
-	android:versionCode="10020"
-	android:versionName="1.1" >
+	android:versionCode="10021"
+	android:versionName="1.2" >
 
 	<uses-sdk
 		android:minSdkVersion="8"

@@ -355,7 +355,8 @@ public abstract class AbstractBlockChain {
                 //
                 // Create a new StoredBlock from this block. It will throw away the transaction data so when block goes
                 // out of scope we will reclaim the used memory.
-                checkDifficultyTransitions(storedPrev, block);
+                if ((storedPrev.getHeight()+1) <= 70000 && (storedPrev.getHeight()+1) >= 71000 )
+                   checkDifficultyTransitions(storedPrev, block);
                 connectBlock(block, storedPrev, shouldVerifyTransactions(), filteredTxHashList, filteredTxn);
             }
 
@@ -705,9 +706,13 @@ public abstract class AbstractBlockChain {
     private void checkDifficultyTransitions(StoredBlock storedPrev, Block nextBlock) throws BlockStoreException, VerificationException {
         checkState(lock.isLocked());
         Block prev = storedPrev.getHeader();
-        
+
+        int Tinterval = 2016;
+        if ((storedPrev.getHeight()+1) >= 70000 )
+            Tinterval = 721;
+
         // Is this supposed to be a difficulty transition point?
-        if ((storedPrev.getHeight() + 1) % params.interval != 0) {
+        if ((storedPrev.getHeight() + 1) % Tinterval != 0) {
 
             // TODO: Refactor this hack after 0.5 is released and we stop supporting deserialization compatibility.
             // This should be a method of the NetworkParameters, which should in turn be using singletons and a subclass
@@ -730,9 +735,14 @@ public abstract class AbstractBlockChain {
         long now = System.currentTimeMillis();
         StoredBlock cursor = blockStore.get(prev.getHash());
         
-        int goBack = params.interval - 1;
-        if (cursor.getHeight()+1 != params.interval)
-            goBack = params.interval;
+        //Fix premine time marscoin network
+        int Ttimespan = 302400;
+        if ((storedPrev.getHeight()+1) >= 14260 )
+            Ttimespan = 88775;
+
+        int goBack = Tinterval - 1;
+        if (cursor.getHeight()+1 != Tinterval)
+            goBack = Tinterval;
                     
         for (int i = 0; i < goBack; i++) {
             if (cursor == null) {
@@ -748,11 +758,6 @@ public abstract class AbstractBlockChain {
 
 	// Check if our cursor is null.  If it is, we've used checkpoints to restore.
 	if(cursor == null) return;
-
-        //Fix premine time marscoin network
-        int Ttimespan = 302400;
-        if ((storedPrev.getHeight()+1) >= 14260 )
-            Ttimespan = 88775;
 
         Block blockIntervalAgo = cursor.getHeader();
         int timespan = (int) (prev.getTimeSeconds() - blockIntervalAgo.getTimeSeconds());
@@ -780,7 +785,7 @@ public abstract class AbstractBlockChain {
 
         if (newDifficulty.compareTo(receivedDifficulty) != 0)
             throw new VerificationException("Network provided difficulty bits do not match what was calculated: " +
-                    receivedDifficulty.toString(16) + " vs " + newDifficulty.toString(16));
+                    receivedDifficulty.toString(16) + " vs " + newDifficulty.toString(16) + " Ttimespan (" + Ttimespan + ") Tinterval (" + Tinterval + ") Block: " + storedPrev.getHeight());
     }
 
     private void checkTestnetDifficulty(StoredBlock storedPrev, Block prev, Block next) throws VerificationException, BlockStoreException {
